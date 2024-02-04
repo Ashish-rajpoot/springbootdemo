@@ -45,6 +45,7 @@ pipeline {
 //                     }
 //                 }
 //             }
+//         }
             stage('Building our image') {
                 steps{
                     script {
@@ -63,6 +64,5 @@ pipeline {
                     }
                 }
             }
-        }
     }
 }
