@@ -15,18 +15,19 @@ pipeline {
                 sh './gradlew clean build'
             }
         }
-        stage('Building our image') {
-            steps {
-                script {
-                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
-                }
-            }
-        }
+//         stage('Building our image') {
+//             steps {
+//                 script {
+//                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
+//                 }
+//             }
+//         }
         stage('Build and Push Docker Image') {
             steps {
                 script {
                     // Log in to Docker registry
                     docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_CREDENTIALS) {
+                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                         // Push Docker image
                         DOCKER_IMAGE_NAME.push()
                     }
