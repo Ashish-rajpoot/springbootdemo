@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REGISTRY_CREDENTIALS = 'docker'
     }
     agent any
-    triggers{
+    triggers {
         pollSCM('* * * * *')
     }
     stages {
@@ -15,20 +15,10 @@ pipeline {
                 sh './gradlew clean build'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
         stage('Building our image') {
-            steps{
+            steps {
                 script {
-                DOCKER_IMAGE_NAME = docker.build DOCKER_REGISTRY + ":$BUILD_NUMBER"
+                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -37,7 +27,7 @@ pipeline {
                 script {
                     // Log in to Docker registry
                     docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_CREDENTIALS) {
-                        // Build and push Docker image
+                        // Push Docker image
                         DOCKER_IMAGE_NAME.push()
                     }
                 }
