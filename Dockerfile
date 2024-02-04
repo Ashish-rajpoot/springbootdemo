@@ -11,6 +11,9 @@ COPY settings.gradle .
 # Copy the source code
 COPY src src
 
+# Debugging statement
+RUN echo "Debug: Before Gradle build"
+
 # Build the application
 RUN ./gradlew build
 
