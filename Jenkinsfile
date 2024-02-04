@@ -29,7 +29,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Docker Build and Push') {
+//         stage('Docker Build and Push') {
 //             steps {
 //                 script {
 //                     // Authenticate with Docker registry using Jenkins credentials
@@ -45,7 +45,6 @@ pipeline {
 //                     }
 //                 }
 //             }
-//         }
             stage('Building our image') {
                 steps{
                     script {
@@ -64,5 +63,6 @@ pipeline {
                     }
                 }
             }
+        }
     }
 }
