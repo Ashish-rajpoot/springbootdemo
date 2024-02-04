@@ -24,3 +24,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+//	archiveBaseName.set("springboot-demo")
+	archiveFileName.set("springboot-demo.jar")
+}
+
