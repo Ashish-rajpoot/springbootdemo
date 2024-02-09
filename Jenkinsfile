@@ -2,7 +2,7 @@ pipeline {
     environment {
         DOCKER_REGISTRY = 'ashish142/springboot-demo'
         DOCKER_IMAGE_NAME = ''
-        DOCKER_REGISTRY_CREDENTIALS = 'docker'
+        DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
     }
     agent any
     triggers {
@@ -18,7 +18,8 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
-                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
+                echo "DOCKER_REGISTRY_CREDENTIALS  : ${DOCKER_REGISTRY_CREDENTIALS}"
+//                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -27,6 +28,7 @@ pipeline {
                 script {
                     // Log in to Docker registry
                     docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_CREDENTIALS) {
+//                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                         // Push Docker image
                         DOCKER_IMAGE_NAME.push()
                     }
