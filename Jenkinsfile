@@ -18,7 +18,7 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
-                echo "DOCKER_REGISTRY_CREDENTIALS : ${DOCKER_REGISTRY_CREDENTIALS}"
+                echo "DOCKER_REGISTRY_CREDENTIALS  : ${DOCKER_REGISTRY_CREDENTIALS}"
 //                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                 }
             }
