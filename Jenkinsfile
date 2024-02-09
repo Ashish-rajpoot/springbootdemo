@@ -2,7 +2,7 @@ pipeline {
     environment {
         DOCKER_REGISTRY = 'ashish142/springboot-demo'
         DOCKER_IMAGE_NAME = ''
-        DOCKER_REGISTRY_CREDENTIALS = 'docker'
+        DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
     }
     agent any
     triggers {
