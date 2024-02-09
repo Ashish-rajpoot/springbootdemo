@@ -30,7 +30,6 @@ pipeline {
                                            // Build and push Docker image
                                            DOCKER_IMAGE_NAME = docker.build("my-image:${BUILD_NUMBER}")
                                            DOCKER_IMAGE_NAME.push()
-                                       }
                     }
                 }
             }
