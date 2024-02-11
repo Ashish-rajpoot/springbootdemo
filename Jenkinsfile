@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                 echo "DOCKER_REGISTRY_CREDENTIALS : ${DOCKER_REGISTRY_CREDENTIALS}"
-//                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
+                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_REGISTRY}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                 script {
                     docker.withRegistry(${DOCKER_REGISTRY}, DOCKER_REGISTRY_CREDENTIALS) {
                                            // Build and push Docker image
-                                           DOCKER_IMAGE_NAME = docker.build("my-image:${BUILD_NUMBER}")
+//                                            DOCKER_IMAGE_NAME = docker.build("my-image:${BUILD_NUMBER}")
                                            DOCKER_IMAGE_NAME.push()
                     }
                 }
