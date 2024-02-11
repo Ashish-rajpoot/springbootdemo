@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOCKER_REGISTRY = ''
+        DOCKER_REGISTRY = 'ashish142/springboot-demo'
         DOCKER_IMAGE_NAME = ''
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
     }
@@ -26,7 +26,7 @@ pipeline {
         stage('Build and Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('', DOCKER_REGISTRY_CREDENTIALS) {
+                    docker.withRegistry(${DOCKER_REGISTRY}, DOCKER_REGISTRY_CREDENTIALS) {
                                            // Build and push Docker image
                                            DOCKER_IMAGE_NAME = docker.build("my-image:${BUILD_NUMBER}")
                                            DOCKER_IMAGE_NAME.push()
