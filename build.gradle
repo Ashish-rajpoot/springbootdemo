@@ -12,7 +12,7 @@ java {
 }
 bootJar {
 	// Customize the name of the generated JAR file
-	archiveFileName = 'springbootdemo.jar'
+	archiveFileName = 'app.jar'
 }
 repositories {
 	mavenCentral()
