@@ -1,6 +1,7 @@
 pipeline {
     environment {
-        DOCKER_REGISTRY = 'ashish142/springboot-demo'
+       // DOCKER_REGISTRY = 'ashish142/springboot-demo'
+         DOCKER_REGISTRY = 'https://hub.docker.com/repository/docker/ashish142/springboot-demo'
         DOCKER_IMAGE_NAME = ''
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
     }
