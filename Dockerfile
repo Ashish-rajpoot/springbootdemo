@@ -4,10 +4,6 @@ FROM openjdk:17
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the Gradle project files
-COPY build.gradle .
-COPY settings.gradle .
-
 # Copy the source code
 COPY src src
 
