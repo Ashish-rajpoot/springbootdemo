@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOCKER_REGISTRY = 'https://hub.docker.com/'
+        DOCKER_REGISTRY = 'https://hub.docker.com/v2/'
 
        //  DOCKER_REGISTRY = 'https://hub.docker.com/repository/docker/ashish142/springboot-demo'
         DOCKER_IMAGE_NAME = 'ashish142/springboot-demo'
@@ -25,7 +25,22 @@ pipeline {
                 }
             }
         }
-
+//         stage('Docker Build Stage') {
+//                     steps {
+//                         echo '::::: Hello, Docker Build stage  :::::'
+//                         sh 'docker image build -t ecom-webservice .'
+//                     }
+//                 }
+//                 stage('Tag docker image'){
+//                     steps {
+//                         sh 'docker tag ecom-webservice ashish142/ecom-webservice:1.0.0'
+//                     }
+//                 }
+//                 stage('Push docker image'){
+//                     steps {
+//                         sh 'sudo docker push ashish142/ecom-webservice:1.0.0'
+//                     }
+//                 }
         stage('Build and Push Docker Image') {
             steps {
                 script {
