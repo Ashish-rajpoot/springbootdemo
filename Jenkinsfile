@@ -3,7 +3,7 @@ pipeline {
         DOCKER_REGISTRY = 'https://hub.docker.com/v2/'
 
        //  DOCKER_REGISTRY = 'https://hub.docker.com/repository/docker/ashish142/springboot-demo'
-        DOCKER_IMAGE_NAME = 'ashish142/springboot-demo'
+        DOCKER_IMAGE_NAME = 'ashish142/app'
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
     }
     agent any
@@ -20,7 +20,6 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
-                echo "DOCKER_REGISTRY_CREDENTIALS : ${DOCKER_REGISTRY_CREDENTIALS}"
                     DOCKER_IMAGE_NAME = docker.build("${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}")
                 }
             }
