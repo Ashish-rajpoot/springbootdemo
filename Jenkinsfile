@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        DOCKER_REGISTRY = 'https://index.docker.io/v1/'
         DOCKER_IMAGE_NAME = 'ashish142/app'
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
         DOCKER_IMAGE_TAG = 'latest' // Tag for the Docker image
@@ -34,7 +33,7 @@ pipeline {
         stage('Build and Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_CREDENTIALS) {
+                    docker.withRegistry("", DOCKER_REGISTRY_CREDENTIALS) {
                         // Push Docker image to Docker Hub
                         DOCKER_IMAGE_NAME.push()
                     }
