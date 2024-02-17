@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOCKER_IMAGE_NAME = 'ashish142/app'
+        DOCKER_IMAGE_NAME = "springbootapp"
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
         DOCKER_IMAGE_TAG = 'latest' // Tag for the Docker image
     }
@@ -22,27 +22,27 @@ pipeline {
                 }
             }
         }
-        stage('Tag Docker Image') {
-            steps {
-                script {
-                    // Tag Docker image
-                    docker.image("${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}").tag("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
-                }
-            }
-        }
+
         stage('Build and Push Docker Image') {
             steps {
                 script {
                     docker.withRegistry("", DOCKER_REGISTRY_CREDENTIALS) {
                         // Push Docker image to Docker Hub
-                        DOCKER_IMAGE_NAME.push()
+                        DOCKER_IMAGE_NAME.push('latest')
                     }
                 }
             }
         }
     }
 }
-
+//         stage('Tag Docker Image') {
+//             steps {
+//                 script {
+//                     // Tag Docker image
+//                     docker.image("${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}").tag("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
+//                 }
+//             }
+//         }
 // pipeline {
 //     environment {
 // //         DOCKER_REGISTRY = 'https://hub.docker.com/v2/'
