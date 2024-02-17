@@ -30,7 +30,7 @@ pipeline {
                     docker.withRegistry('', DOCKER_REGISTRY_CREDENTIALS) {
                         // Tag and push the Docker image
                         def imageNameWithTag = "ashish142/${DOCKER_IMAGE_NAME}"
-                        def tag = BUILD_NUMBER
+                        def tag = "${BUILD_NUMBER}"
 //                         DOCKER_REGISTRY_IMAGE.tag(${BUILD_NUMBER})
                         imageNameWithTag.push(tag)
                     }
