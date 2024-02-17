@@ -3,6 +3,7 @@ pipeline {
         DOCKER_IMAGE_NAME = "springbootapp"
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
         DOCKER_IMAGE_TAG = 'latest' // Tag for the Docker image
+        DOCKER_REGISTRY_IMAGE="";
     }
     agent any
     triggers {
@@ -18,7 +19,7 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
-                    DOCKER_IMAGE_NAME = docker.build("${DOCKER_IMAGE_NAME}")
+                    DOCKER_REGISTRY_IMAGE = docker.build("ashish142/${DOCKER_IMAGE_NAME}")
                 }
             }
         }
@@ -28,7 +29,7 @@ pipeline {
                 script {
                     docker.withRegistry("", DOCKER_REGISTRY_CREDENTIALS) {
                         // Push Docker image to Docker Hub
-                        DOCKER_IMAGE_NAME.push('latest')
+                        DOCKER_REGISTRY_IMAGE.push('latest')
                     }
                 }
             }
