@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOCKER_IMAGE_NAME = "springbootapp"
+        DOCKER_IMAGE_NAME = "ashish142/springbootapp"
         DOCKER_REGISTRY_CREDENTIALS = 'DockerId'
         DOCKER_IMAGE_TAG = 'latest' // Tag for the Docker image
     }
