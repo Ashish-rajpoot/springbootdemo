@@ -11,6 +11,10 @@ public class HomeController {
 
     @GetMapping("/")
     public ResponseEntity<?> homeMapping(){
-        return ResponseEntity.status(HttpStatus.OK).body("Welcome to Demo Home");
+        return ResponseEntity.status(HttpStatus.OK).body("Welcome to Demo Home updated");
+    }
+    @GetMapping("/new")
+    public ResponseEntity<?> newRoute(){
+        return ResponseEntity.status(HttpStatus.OK).body("Welcome to new route");
     }
 }
