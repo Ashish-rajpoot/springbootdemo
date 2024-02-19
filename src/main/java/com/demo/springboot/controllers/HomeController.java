@@ -17,4 +17,8 @@ public class HomeController {
     public ResponseEntity<?> newRoute(){
         return ResponseEntity.status(HttpStatus.OK).body("Welcome to new route");
     }
+    @GetMapping("/gaurav")
+    public ResponseEntity<?> gav(){
+        return ResponseEntity.status(HttpStatus.OK).body("Gaurav");
+    }
 }
