@@ -19,6 +19,7 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
+                echo 'Building...'
                     // Build the Docker image
                     DOCKER_IMAGE_NAME = docker.build("ashish142/${DOCKER_IMAGE_NAME}")
                 }
