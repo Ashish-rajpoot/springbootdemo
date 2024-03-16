@@ -19,6 +19,8 @@ pipeline {
         stage('Building our image') {
             steps {
                 script {
+                echo 'Remove existing images'
+                docker images | grep "ashish142/springbootapp" | xargs docker rmi
                 echo 'Building...'
                     // Build the Docker image
                     DOCKER_IMAGE_NAME = docker.build("ashish142/${DOCKER_IMAGE_NAME}")
@@ -38,5 +40,14 @@ pipeline {
                 }
             }
         }
+        stage("deployment"){
+            steps{
+                script{
+                echo"Starting container"
+                docker container run --rm --name springbootapp -p 8081:8081 ashish142/springbootapp:latest
+                }
+            }
+        }
+        
     }
 }
