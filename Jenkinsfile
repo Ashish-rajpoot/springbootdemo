@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     echo 'Remove existing images'
-                    docker images | grep 'ashish142/springbootapp' | xargs docker rmi
+                    sh 'docker images | grep ashish142/springbootapp | awk '\{print $3}\' xargs docker rmi -f'
                     echo 'Building...'
                     // Build the Docker image
                     DOCKER_IMAGE_NAME = docker.build("ashish142/${DOCKER_IMAGE_NAME}")
