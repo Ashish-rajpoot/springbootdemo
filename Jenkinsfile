@@ -22,7 +22,9 @@ pipeline {
                 script {
                     echo 'Remove existing images'
                     sh '''
+                    if(docker images | grep 'ashish142/springbootapp'); then
                     docker images | grep 'ashish142/springbootapp' | xargs docker rmi -f
+                    fi
                     '''
                     echo 'Building...'
                     // Build the Docker image
