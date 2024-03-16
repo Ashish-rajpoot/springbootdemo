@@ -45,10 +45,10 @@ pipeline {
         }
         stage("deployment"){
             steps{
-                script{
                     echo 'Starting container'
+                   sh'''
                     docker container run --rm --name springbootapp -p 8081:8081 ashish142/springbootapp:latest
-                }
+                    '''
             }
         }
         
