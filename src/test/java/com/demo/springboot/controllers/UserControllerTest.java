@@ -19,7 +19,7 @@ import static com.demo.springboot.utils.GlobalConstant.*;
 @RestController
 @RequestMapping(BASE_URL+USER_CONTROLLER)
 @Validated
-public class UserController {
+public class UserControllerTest {
     @Autowired
     UserServiceImpl userService;
 

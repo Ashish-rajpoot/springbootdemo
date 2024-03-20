@@ -1,10 +1,8 @@
 package com.demo.springboot.validators;
 
-import com.demo.springboot.entity.User;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

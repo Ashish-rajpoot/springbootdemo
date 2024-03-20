@@ -9,10 +9,11 @@ import lombok.*;
 @Setter
 @Builder
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private int id;
 
     @Column(nullable = false)
     private String firstName;
@@ -22,7 +23,6 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String lastName;
-    @ValidCountry
     @Column(nullable = false)
     private String country;
 
